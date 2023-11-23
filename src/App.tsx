@@ -3,15 +3,16 @@ import { useState } from 'react';
 import GameGrid from './components/GameGrid';
 import GenreList from './components/GenreList';
 import NavBar from './components/NavBar';
-import { Genre } from './hooks/useGenre';
 import PlatformSelector from './components/PlatformSelector';
-import { Platform } from './hooks/useGames';
 import SortSelector from './components/SortSelector';
+import { Platform } from './hooks/useGames';
+import { Genre } from './hooks/useGenre';
 
 export interface GameQuery {
 	genre: Genre | null;
 	platform: Platform | null;
 	sortOrder: string;
+	searchTxt: string;
 }
 
 const App = () => {
@@ -28,7 +29,14 @@ const App = () => {
 				lg: '200px 1fr'
 			}}>
 			<GridItem area="nav">
-				<NavBar />
+				<NavBar
+					onSearch={(searchTxt) =>
+						setGameQuery({
+							...gameQuery,
+							searchTxt: searchTxt
+						})
+					}
+				/>
 			</GridItem>
 			<Show above="lg">
 				<GridItem area="aside" paddingX={3}>
