@@ -1,4 +1,5 @@
 import { Card, CardBody, HStack, Heading, Image, useColorMode } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import { Game } from '../hooks/useGames';
 import getCropImageUrl from '../services/image-url';
 import CriticScore from './CriticScore';
@@ -15,17 +16,19 @@ const GameCard = ({ game }: Props) => {
 
 	return (
 		<Card>
-			<Image src={getCropImageUrl(game.background_image)} />
-			<CardBody backgroundColor={bg}>
-				<HStack justifyContent="space-between" marginBottom={3}>
-					<PlatformIconList platforms={game.parent_platforms.map(({ platform }) => platform)} />
-					<CriticScore score={game.metacritic} />
-				</HStack>
-				<Heading fontSize="xl">
-					{game.name}
-					<Emoji rating={game.rating_top} />
-				</Heading>
-			</CardBody>
+			<Link to={'/games/' + game.slug}>
+				<Image src={getCropImageUrl(game.background_image)} />
+				<CardBody backgroundColor={bg}>
+					<HStack justifyContent="space-between" marginBottom={3}>
+						<PlatformIconList platforms={game.parent_platforms.map(({ platform }) => platform)} />
+						<CriticScore score={game.metacritic} />
+					</HStack>
+					<Heading fontSize="xl">
+						{game.name}
+						<Emoji rating={game.rating_top} />
+					</Heading>
+				</CardBody>
+			</Link>
 		</Card>
 	);
 };
