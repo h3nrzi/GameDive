@@ -28,7 +28,9 @@ const App = () => {
 						<Show below="lg">
 							<GenreSelector />
 						</Show>
-						<SortSelector />
+						<Show above="lg">
+							<SortSelector />
+						</Show>
 					</HStack>
 				</Box>
 				<GameGrid />
