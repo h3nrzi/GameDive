@@ -4,6 +4,8 @@ GameDive is a video game discovery web app that helps you find new and interesti
 
 [GameDive](https://game-dive.vercel.app/)
 
+![Screenshot](https://github.com/h3nrzi/GameDive/blob/main/2023-12-29_22-59-38.png)
+
 ## Getting Started
 
 To get started with GameDive, follow these steps:
